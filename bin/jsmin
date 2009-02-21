@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'jsmin'
+
+source_file = ARGV[0]
+
+if source_file.nil?
+  puts "Usage: jsmin <source file> [destination file]"
+  exit 1
+end
+
+destination_file = $2 || "#{source_file}.minified"
+
+if !File.exist?(source_file)
+  puts "Could not locate source file: #{source_file}" 
+  exit 1;
+end
+
+File.open(destination_file, 'w') {|file| file << JSMin.minify(File.read(source_file)) }

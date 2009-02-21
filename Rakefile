@@ -38,6 +38,7 @@ gemspec = Gem::Specification.new do |s|
   s.has_rdoc     = true
 
   s.required_ruby_version = '>= 1.8.6'
+  s.executables = ['jsmin']
 
   s.files = [
     'HISTORY',
